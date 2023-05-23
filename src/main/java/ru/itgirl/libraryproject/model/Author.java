@@ -2,33 +2,32 @@ package ru.itgirl.libraryproject.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
 
 @AllArgsConstructor
-    @NoArgsConstructor
-    @Builder
-    @Getter
-    @Entity
-    public class Author {
+@NoArgsConstructor
+@Builder
+@Getter
+@Entity
+public class Author {
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        @Column(nullable = false)
-        private String name;
+    @Setter
+    @Column(nullable = false)
+    private String name;
 
-        @Column(nullable = false)
-        private String surname;
+    @Setter
+    @Column(nullable = false)
+    private String surname;
 
-        @ManyToMany(mappedBy = "authors")
-        private Set<Book> books;
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books;
 
-    }
+}
 
