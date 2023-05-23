@@ -38,12 +38,12 @@ public class AuthorController {
     }
 
     @PostMapping("/author/create")
-    AuthorDto createAuthor(@RequestBody (required=false) AuthorCreateDto authorCreateDto) {
+    AuthorDto createAuthor(@RequestBody AuthorCreateDto authorCreateDto) {
         return authorService.createAuthor(authorCreateDto);
     }
 
     @PutMapping("/author/update")
-    AuthorDto updateAuthor(@RequestBody (required=false) AuthorUpdateDto authorUpdateDto) {
+    AuthorDto updateAuthor(@RequestBody AuthorUpdateDto authorUpdateDto) {
         return authorService.updateAuthor(authorUpdateDto);
     }
 
