@@ -95,7 +95,6 @@ public class BookServiceImpl implements BookService {
         return bookDto;
     }
 
-
     private Book convertDtoToEntity(BookCreateDto bookCreateDto) {
         Genre genre = genreRepository.findById(bookCreateDto.getGenre()).orElseThrow();
         return Book.builder()

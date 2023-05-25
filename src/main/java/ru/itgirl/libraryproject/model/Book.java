@@ -20,7 +20,7 @@ public class Book {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY
-    //,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}
+            //,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}
     )
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
@@ -31,5 +31,4 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"),
             joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"))
     private Set<Author> authors;
-
 }
