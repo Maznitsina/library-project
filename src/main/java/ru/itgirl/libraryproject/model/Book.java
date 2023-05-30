@@ -19,9 +19,7 @@ public class Book {
     @Column(nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY
-            //,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}
-    )
+    @ManyToOne(fetch = FetchType.LAZY ,cascade = {CascadeType.MERGE})
     @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
 
