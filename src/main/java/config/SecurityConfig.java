@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -19,7 +20,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/book").hasRole("USER")
                                 .requestMatchers("/book/v2").hasRole("ADMIN")
-                                .requestMatchers("/books").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
                 .httpBasic();
@@ -27,6 +27,7 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Deprecated
     @Bean
     public UserDetailsService users() {
         User.UserBuilder users = User.withDefaultPasswordEncoder();
