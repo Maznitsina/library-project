@@ -1,5 +1,5 @@
 body {
-    font-family: "lato", sans-serif;
+    font-family: "American Typewriter", serif;
 }
 
 .container {
@@ -27,7 +27,7 @@ h2 small {
     margin-bottom: 25px;
 }
 .responsive-table .table-header {
-    background-color: #95A5A6;
+    background-color: #DB7093;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
