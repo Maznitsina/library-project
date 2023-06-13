@@ -32,6 +32,7 @@
             FOREIGN KEY (author_id) REFERENCES author (id)
             );
 
+
             Insert into author(name, surname) values
             ('Александр', 'Пушкин'),
             ('Николай', 'Гоголь'),
@@ -56,6 +57,7 @@
             (2, 5),
             (3, 2),
             (4, 4);
+
 
         </sql>
     </changeSet>
