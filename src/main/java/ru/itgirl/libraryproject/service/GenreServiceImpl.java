@@ -52,7 +52,6 @@ public class GenreServiceImpl implements GenreService {
                                     .build()
                             ).toList();
                     return BookDto.builder()
-                            .genre(genre.getName())
                             .authors(authorDtoList)
                             .id(book.getId())
                             .name(book.getName())

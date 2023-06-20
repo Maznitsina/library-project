@@ -135,10 +135,15 @@ public class BookServiceImpl implements BookService {
                     .toList();
         }
 
+        GenreDto genreDto = GenreDto.builder()
+                .id(book.getGenre().getId())
+                .name(book.getGenre().getName())
+                .build();
+
         BookDto bookDto = BookDto.builder()
                 .id(book.getId())
                 .name(book.getName())
-                .genre(book.getGenre().getName())
+                .genre(genreDto.getName())
                 .authors(authorDtoList)
                 .build();
         return bookDto;
