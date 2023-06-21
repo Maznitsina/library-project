@@ -38,13 +38,14 @@ public class AuthorRestControllerTest {
 
     @Test
     public void testGetAuthorByNameV1() throws Exception {
-        String authorName = "Alex";
+        String authorName = "Николай";
         AuthorDto authorDto = new AuthorDto();
-        authorDto.setId(1L);
+        authorDto.setId(2L);
         authorDto.setName(authorName);
-        authorDto.setSurname("Clark");
+        authorDto.setSurname("Гоголь");
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/author", authorName))
+        mockMvc.perform(MockMvcRequestBuilders.get("/author")
+                .param("name", authorName))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(authorDto.getId()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(authorDto.getName()))
@@ -53,13 +54,30 @@ public class AuthorRestControllerTest {
 
     @Test
     public void testGetAuthorByNameV2() throws Exception {
-        String authorName = "Alex";
+        String authorName = "Александр";
         AuthorDto authorDto = new AuthorDto();
         authorDto.setId(1L);
         authorDto.setName(authorName);
-        authorDto.setSurname("Clark");
+        authorDto.setSurname("Пушкин");
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/author/v2", authorName))
+        mockMvc.perform(MockMvcRequestBuilders.get("/author/v2")
+                .param("name", authorName))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(authorDto.getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(authorDto.getName()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.surname").value(authorDto.getSurname()));
+    }
+
+    @Test
+    public void testGetAuthorByNameV3() throws Exception {
+        String authorName = "Федор";
+        AuthorDto authorDto = new AuthorDto();
+        authorDto.setId(5L);
+        authorDto.setName(authorName);
+        authorDto.setSurname("Достоевский");
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/author/v3")
+                        .param("name", authorName))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(authorDto.getId()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value(authorDto.getName()))
